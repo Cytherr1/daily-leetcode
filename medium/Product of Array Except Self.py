@@ -1,4 +1,19 @@
-class Solution:
+import numpy as np
+
+class Solution1:
+    def productExceptSelf(self, nums):
+        
+        l = len(nums)
+
+        res = np.array([1] * l)
+
+        for i in range(l):
+            res[:i] = res[:i] * nums[i]
+            res[i+1:] = res[i+1:] * nums[i]
+            
+        return res
+
+class Solution2:
     def productExceptSelf(self, nums):
 
         length = len(nums)
@@ -23,6 +38,3 @@ class Solution:
                 products.append(prefixProduct[i - 1] * suffixProduct[i + 1])
 
         return products
-
-
-# take prefix and suffix products as variables next time!
